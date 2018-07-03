@@ -88,7 +88,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.12.2"
+    "webpack-hot-middleware": "^2.12.2",
+    "snyk": "^1.88.0"
   },
   "optionalDependencies": {
     "react-app": "^1.1.2"
@@ -114,7 +115,15 @@
     "parser": "babel-eslint",
     "extends": "airbnb",
     "rules": {
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ]
     }
   },
   "stylelint": {
@@ -129,6 +138,9 @@
     "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
     "new": "node ./app/bin/react-app new --test-sdk",
     "build": "node ./app/bin/react-app build --test-sdk",
-    "start": "node ./app/bin/react-app run --test-sdk"
-  }
+    "start": "node ./app/bin/react-app run --test-sdk",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
